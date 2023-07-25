@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Botão "Não" Aleatório</title>
+    <style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        padding-bottom: 15rem;
+        text-align: center;
+    }
+
+    #buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 18px;
+        color: blue;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+        
+    }
+
+    #nao-button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #ye{
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+    }
+    </style>
+</head>
+<body>
+    <h2>C*zinho hoje?</h2> 
+    <div id="buttons-container">
+        <div class="button" id="ye"><a href="#">Sim</a></div>
+        <div class="button" id="nao-button">Não</div>
+    </div>
+
+    <script>
+    const naoButton = document.getElementById("nao-button");
+
+    naoButton.addEventListener("mouseenter", () => {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const buttonWidth = naoButton.offsetWidth;
+        const buttonHeight = naoButton.offsetHeight;
+
+      const randomX = Math.random() * (screenWidth - buttonWidth);
+      const randomY = Math.random() * (screenHeight - buttonHeight);
+
+        naoButton.style.left = `${randomX}px`;
+        naoButton.style.top = `${randomY}px`;
+    });
+    </script>
+</body>
+</html>
